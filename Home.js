@@ -4,22 +4,26 @@ const events = data.events
 
 const contenedor = document.getElementById("contenedor-cards")
 
-const card = document.createElement("div")
-card.classList.add("card")
-/* card.style.width = "18rem"; */
-card.innerHTML = `<img src="./img/music_concert.jpg" class="card-img-top" alt="...">
+
+
+for (let event of events) {
+    const card = document.createElement("div")
+
+    card.classList.add("card")
+
+    card.innerHTML = `<img src="${event.image}" class="card-img-top h-50" alt="...">
 <div class="card-body">
-  <h5 class="card-title text-truncate">Live Concerts World wide</h5>
-  <p class="card-text text-truncate">Enjoy live music from your favorite artists at our wide and exciting
-    concerts.
-    Our company organizes large and exciting concerts with the world's most popular artists.
+  <h5 class="card-title text-truncate">${event.name}</h5>
+  <p class="card-text ">${event.description} 
   </p>
-  <div class="d-flex justify-content-between">
-    <p class="d-flex">$ 10</p>
-    <a href="#" class="btn btn-outline-dark">Details</a>
+  <br>
+  <div class="d-flex justify-content-evenly align-content-center">
+    <p class="d-flex height=""><img src="./icons/ticket-perferated-fill.svg" class="" alt="..."> USD ${event.price}</p>
+    <a href="#" class="btn btn-dark">Details</a>
   </div>
 </div>`
 
-contenedor.appendChild(card)
+    contenedor.appendChild(card)
 
 
+}

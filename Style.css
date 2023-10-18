@@ -72,4 +72,11 @@ ul {
 }
 .card{
   width: 18rem;
+  margin-bottom: 1rem;
+  
+  
+}
+.card-body{
+  background-color: #b0c4b1;
+  height: 35vh;
 }
