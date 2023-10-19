@@ -20,7 +20,7 @@ header {
 main {
     min-width: auto;
     min-height: 78vh;
-    
+    background-color: #c8b6ff;
     
 }
 footer {
@@ -77,6 +77,10 @@ ul {
   
 }
 .card-body{
-  background-color: #b0c4b1;
+  background-color: #cbf3f0;
   height: 35vh;
+}
+#searchbar{
+  background-image: url("");
+  background-repeat: round;
 }

@@ -17,8 +17,8 @@ for (let event of events) {
   <p class="card-text ">${event.description} 
   </p>
   <br>
-  <div class="d-flex justify-content-evenly align-content-center">
-    <p class="d-flex height=""><img src="./icons/ticket-perferated-fill.svg" class="" alt="..."> USD ${event.price}</p>
+  <div class="d-flex justify-content-between ">
+    <p class="d-flex> <img src="./icons/ticket-perferated-fill.svg" class="" alt="..."> $ ${event.price}</p>
     <a href="#" class="btn btn-dark">Details</a>
   </div>
 </div>`
