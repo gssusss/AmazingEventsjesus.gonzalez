@@ -74,14 +74,15 @@
  .form-control {
    height: 1rem;
    width: 10rem;
-   margin-right: 0.2rem
+   margin-right: 0.2rem;
+   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
  }
 
  .card {
    width: 18rem;
    margin-bottom: 1rem;
-
-
+   
+   
  }
 
  .card-body {
