@@ -14,15 +14,15 @@ function crearCard(allEvents) {
   <p class="card-text ">${event.description} 
   </p>
   
-  <div class="d-flex justify-content-evenly ">
-    <p class="d-flex fw-bold fs-5"> <img id="iconticket" src='./icons/ticket-perferated-fill.svg' class="" alt="..."> &nbsp; $ ${event.price}</p>
+  <div class="card-footer d-flex justify-content-evenly ">
+    <p class="d-flex fw-bold fs-5"> <img id="iconticket" src='./icons/ticket-perferated-fill.svg' class="" alt="..."> &nbsp; $ ${event.price} &nbsp;</p>
     <div><a href="./Details.html?_id=${event._id}" class="btn btn-dark">Details</a></div>
   </div>
 </div>`
 
     contenedor.appendChild(card)
-
   }
 }
+
 
 crearCard(eventsArray)

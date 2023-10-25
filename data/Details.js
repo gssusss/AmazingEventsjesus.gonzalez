@@ -6,33 +6,44 @@ const events = data.events;
 let findEvents = events.find(event => event._id == id)
 
 const contenedorDetails = document.getElementById("contenedor-details");
-
+let estimate = events.estimate
 
 function crearCard(event) {
+  const cardDetails = document.createElement("div");
+  
+  let assistance = () => {
+    if (event.assistance) {
+      return event.assistance;
+    } else {
+      return event.estimate;
+    }
+  }
+  
+  cardDetails.classList.add("card");
+  cardDetails.style.height ="auto";
+  cardDetails.style.width = "auto";
 
-    const cardDetails = document.createElement("div");
-
-    cardDetails.classList.add("card");
-    cardDetails.style.height ="auto";
-    cardDetails.style.width = "auto";
-    cardDetails.innerHTML = `<div class="row g-0 ">
+  
+  cardDetails.innerHTML = `<div class="row g-0 ">
     <div class="col-md-4 text-center">
       <img src=" ${event.image} " class="img-fluid h-100 rounded-start " alt="...">
     </div>
     <div class="col-md-8 text-center">
       <div class="card-body h-100">
-        <h3 class="card-title"> ${event.name} </h3>
+        <h3 class="card-title"> <img id="iconticket" src='./icons/ticket-perferated-fill.svg' class="" alt="..."> ${event.name} <img id="iconticket" src='./icons/ticket-perferated-fill.svg' class="" alt="..."> </h3>
         <p class="card-text fs-4"> ${event.description} </p>
         <p class="card-text"> Category ↔ ${event.category} </p>
         <p class="card-text"> Place ↔ ${event.place} </p>
         <p class="card-text"> Date ↔ ${event.date} </p>
         <p class="card-text"> Capacity ↔ ${event.capacity} </p>
-        <p class="card-text"> Estimate ↔ ${event.estimate} </p>
-        <p class="card-text"> Assistance ↔ ${event.assistance} </p>
-        <p class="card-text"> <img id="iconticket" src='./icons/ticket-perferated-fill.svg' class="" alt="..."> Price ↔ ${event.price} <img id="iconticket" src='./icons/ticket-perferated-fill.svg' class="" alt="..."></p>
+        
+        <p class="card-text"> Assistance ↔ ${assistance (assistance)} </p>
+        <p class="card-text">  Price ↔ 💲${event.price} </p>
+        <div class=""><a href="#" class="btn btn-secondary"> Buy Ticket &nbsp; <img id="iconticket" src='./icons/ticket-perferated-fill.svg' class="" alt="..."></a></div>
       </div>
     </div>
   </div>`;
+  
 
     contenedorDetails.appendChild(cardDetails);
 

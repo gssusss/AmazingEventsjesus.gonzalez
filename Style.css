@@ -28,12 +28,15 @@
    min-height: 10vh;
 
  }
-
+ .footer-a {
+  
+  text-decoration: none;
+}
  ul {
    padding: 0;
    margin: 2rem;
  }
- 
+
  .nav-item {
    display: flex;
    align-items: center;
@@ -71,3 +74,11 @@
  #iconticket {
    height: 30px;
  }
+
+ .card-footer {
+  position: absolute;
+  bottom: 0;
+  
+  transform: translateX(10%);
+  
+}
