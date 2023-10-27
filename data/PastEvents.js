@@ -2,7 +2,7 @@ const events = data.events;
 
 const contenedor = document.getElementById("contenedor-past-events");
 
-const today = new Date();
+const today = new Date(data.currentDate);
 
 function crearCard(pastEvents) {
   for (let event of pastEvents) {
@@ -18,8 +18,8 @@ function crearCard(pastEvents) {
       <p class="card-text ">${event.description} 
       </p>
       <br>
-      <div class="d-flex justify-content-evenly ">
-        <p class="d-flex fw-bold fs-5"> <img id="iconticket" src='./icons/ticket-perferated-fill.svg' class="" alt="..."> &nbsp; $ ${event.price}</p>
+      <div class="card-footer d-flex justify-content-evenly ">
+        <p class="d-flex fw-bold fs-5"> <img id="iconticket" src='./icons/ticket-perferated-fill.svg' class="" alt="..."> &nbsp; $ ${event.price} &nbsp;</p>
         <div><a href="./Details.html?_id=${event._id}" class="btn btn-dark">Details</a></div>
       </div>
     </div>`;

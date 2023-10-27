@@ -1,6 +1,24 @@
-const eventsArray = data.events;
-
+let eventsArray = data.events;
+const checkboxCont = document.getElementById("searchbar-checkbox");
 const contenedor = document.getElementById("contenedor-cards");
+let categories = []
+categories = Array.from(new Set(eventsArray.map(event => event.category)));
+
+categories.forEach(category => {
+  
+});
+
+
+
+/* 
+<input type="checkbox" class="btn-check" id="btn-check-4" autocomplete="off">
+<label class="btn" for="btn-check-4">Single toggle</label>
+
+<input type="checkbox" class="btn-check" id="btn-check-5" checked autocomplete="off">
+<label class="btn" for="btn-check-5">Checked</label>
+
+<input type="checkbox" class="btn-check" id="btn-check-6" autocomplete="off" disabled>
+<label class="btn" for="btn-check-6">Disabled</label> */
 
 function crearCard(allEvents) {
   for (let event of allEvents) {
