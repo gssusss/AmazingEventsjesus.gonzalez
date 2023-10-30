@@ -1,24 +1,47 @@
-let eventsArray = data.events;
+const eventsArray = data.events;
 const checkboxCont = document.getElementById("searchbar-checkbox");
 const contenedor = document.getElementById("contenedor-cards");
+
 let categories = []
-categories = Array.from(new Set(eventsArray.map(event => event.category)));
-
-categories.forEach(category => {
-  
-});
+categories = Array.from(new Set(eventsArray.map(event => event.category.replace(" ", "-"))));
 
 
 
-/* 
-<input type="checkbox" class="btn-check" id="btn-check-4" autocomplete="off">
-<label class="btn" for="btn-check-4">Single toggle</label>
+function checkBoxx(allCategories) {
+  allCategories.forEach(category => {
+    let cboxdiv = document.createElement('div');
+    cboxdiv.classList.add("d-flex");
+    cboxdiv.innerHTML = `<input type="checkbox" class="btn-check" id=${category} value=${category} autocomplete="off">
+    <label class="btn btn-outline-dark" for=${category}>${category.replace("Food-Fair", "Foods").replace("Music-Concert", "Concerts").replace("Costume-Party", "Costume").replace("Book-Exchange", "Books")}</label>`;
 
-<input type="checkbox" class="btn-check" id="btn-check-5" checked autocomplete="off">
-<label class="btn" for="btn-check-5">Checked</label>
+    checkboxCont.appendChild(cboxdiv);
 
-<input type="checkbox" class="btn-check" id="btn-check-6" autocomplete="off" disabled>
-<label class="btn" for="btn-check-6">Disabled</label> */
+  }
+  );
+}
+checkBoxx(categories);
+
+
+
+checkboxCont.addEventListener('change',()=> eventsFilter(eventsArray))
+
+function eventsFilter(categoryFilter) {
+
+  let checked = Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map(checkbox => checkbox.value)
+  console.log(checked);
+  let filterEvents = []
+
+  filterEvents.forEach(categories => {
+    checked.forEach(category => {
+      if (category == events.category.replace(" ", "-")) {
+        categoryFilter.push(categories)
+      }
+    })
+  })
+  console.log(filterEvents);
+  return filterEvents
+}
+
 
 function crearCard(allEvents) {
   for (let event of allEvents) {

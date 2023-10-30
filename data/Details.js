@@ -39,7 +39,7 @@ function crearCard(event) {
         
         <p class="card-text"> Assistance ↔ ${assistance (assistance)} </p>
         <p class="card-text">  Price ↔ 💲${event.price} </p>
-        <div class=""><a href="#" class="btn btn-secondary"> Buy Ticket &nbsp; <img id="iconticket" src='./icons/ticket-perferated-fill.svg' class="" alt="..."></a></div>
+        <div class=""><a href="#" class="btn btn-secondary disabled"> Buy Ticket &nbsp; <img id="iconticket" src='./icons/ticket-perferated-fill.svg' class="" alt="..."></a></div>
       </div>
     </div>
   </div>`;
