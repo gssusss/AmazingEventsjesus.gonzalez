@@ -1,14 +1,15 @@
 const eventsArray = data.events;
 const checkboxCont = document.getElementById("searchbar-checkbox");
 const contenedor = document.getElementById("contenedor-cards");
-
-let categories = []
+const buscador = document.getElementById("buscador");
+let categories = [];
 categories = Array.from(new Set(eventsArray.map(event => event.category.replace(" ", "-"))));
 
 
 
 function checkBoxx(allCategories) {
   allCategories.forEach(category => {
+    
     let cboxdiv = document.createElement('div');
     cboxdiv.classList.add("d-flex");
     cboxdiv.innerHTML = `<input type="checkbox" class="btn-check" id=${category} value=${category} autocomplete="off">
@@ -16,28 +17,34 @@ function checkBoxx(allCategories) {
 
     checkboxCont.appendChild(cboxdiv);
 
+    
   }
   );
+  
 }
 checkBoxx(categories);
 
 
 
-checkboxCont.addEventListener('change',()=> eventsFilter(eventsArray))
 
-function eventsFilter(categoryFilter) {
+
+function eventsFilter(eventCategories) {
 
   let checked = Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map(checkbox => checkbox.value)
-  console.log(checked);
+  /* console.log(checked); */
   let filterEvents = []
 
-  filterEvents.forEach(categories => {
+  eventCategories.forEach(categories => {
     checked.forEach(category => {
-      if (category == events.category.replace(" ", "-")) {
-        categoryFilter.push(categories)
+      if (category == categories.category.replace(" ", "-")) {
+        filterEvents.push(categories)
       }
     })
   })
+  if (eventsFilter.length == 0) {
+    filterEvents.push(eventCategories)
+  }
+  console.log(eventCategories);
   console.log(filterEvents);
   return filterEvents
 }
@@ -67,3 +74,11 @@ function crearCard(allEvents) {
 
 
 crearCard(eventsArray)
+
+
+checkboxCont.addEventListener('change',()=>{ 
+  let filtro = eventsFilter(eventsArray)
+
+  crearCard(filtro)
+
+})
