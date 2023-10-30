@@ -8,9 +8,10 @@ categories = Array.from(new Set(eventsArray.map(event => event.category.replace(
 
 
 function checkBoxx(allCategories) {
+  
   allCategories.forEach(category => {
     
-    let cboxdiv = document.createElement('div');
+    const cboxdiv = document.createElement('div');
     cboxdiv.classList.add("d-flex");
     cboxdiv.innerHTML = `<input type="checkbox" class="btn-check" id=${category} value=${category} autocomplete="off">
     <label class="btn btn-outline-dark" for=${category}>${category.replace("Food-Fair", "Foods").replace("Music-Concert", "Concerts").replace("Costume-Party", "Costume").replace("Book-Exchange", "Books")}</label>`;
@@ -51,7 +52,11 @@ function eventsFilter(eventCategories) {
 
 
 function crearCard(allEvents) {
-  for (let event of allEvents) {
+  if(allEvents.length==0){
+      contenedor.innerHTML = `<h2>No se encontro su busqueda</h2>`
+    }else{
+    contenedor.innerHTML = ""
+    allEvents.forEach(event => {  
     const card = document.createElement("div")
 
     card.classList.add("card")
@@ -66,10 +71,11 @@ function crearCard(allEvents) {
     <p class="d-flex fw-bold fs-5"> <img id="iconticket" src='./icons/ticket-perferated-fill.svg' class="" alt="..."> &nbsp; $ ${event.price} &nbsp;</p>
     <div><a href="./Details.html?_id=${event._id}" class="btn btn-dark">Details</a></div>
   </div>
-</div>`
+</div>`;
 
     contenedor.appendChild(card)
-  }
+  })
+}
 }
 
 
